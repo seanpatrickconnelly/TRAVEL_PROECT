@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Flight Delay</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="static/style.css"/>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="jumbotron text-center" style="background-image: url('static/airport.jpg'); background-size: cover; background-repeat: no-repeat; height: 350px;">
+        <h1 class="ml5">
+            <span class="text-wrapper">
+              <span class="line line1"></span>
+              <span class="letters letters-left">Flight</span>
+              <span class="letters letters-center">Delay</span>
+              <span class="letters letters-right">Dashboard</span>
+              <span class="line line2"></span>
+            </span>
+        </h1>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+          <div class="well well-lg">
+              <center><h5><b>Select Delay Type:</b></h5>
+            <select id="selDataset" onchange="optionChanged(this.value)"></select></center>
+          </div>
+        </div>
+          <div class="col-md-9">
+            <h5><b>Delay Types:</b></h5>
+              <ul><li><b>Air Carrier:</b> The cause of the cancellation or delay was due to circumstances within the airline's control (e.g. maintenance or crew problems, aircraft cleaning, baggage loading, fueling, etc.).
+              <li><b>Extreme Weather:</b> Significant meteorological conditions (actual or forecasted) that, in the judgment of the carrier, delays or prevents the operation of a flight such as tornado, blizzard or hurricane.
+              <li><b>National Aviation System (NAS):</b> Delays and cancellations attributable to the national aviation system that refer to a broad set of conditions, such as non-extreme weather conditions, airport operations, heavy traffic volume, and air traffic control.
+              <li><b>Late-arriving aircraft:</b> A previous flight with same aircraft arrived late, causing the present flight to depart late.
+              <li><b>Security:</b> Delays or cancellations caused by evacuation of a terminal or concourse, re-boarding of aircraft because of security breach, inoperative screening equipment and/or long lines in excess of 29 minutes at screening areas.
+              <br><br>
+                A flight is counted as "on time" if it operated less than 15 minutes later than the scheduled time shown in the carriers' Computerized Reservations Systems (CRS). Arrival performance is based on arrival at the gate. Departure performance is based on departure from the gate.
+              </ul>
+          </div>
+        <div class="row">
+            <div class="col-md-12">
+              <div id="line"></div>
+            </div>
+        </div>
+        <br><br>
+        <div class="row">
+          <div class="col-md-12">
+            <div id="bar1"></div>
+          </div>
+        </div>
+        <br><br>
+        <div class="row">
+          <div class="col-md-12">
+            <div id="bar2"></div>
+          </div>
+      </div>
+      <br><br>
+      <div class="row">
+        <div class="col-md-12">
+          <div id="bubble"></div>
+        </div>
+      </div>
+    </div>
+
+  <style>HTML,BODY{cursor: url("https://downloads.totallyfreecursors.com/cursor_files/airplane1.ani"), url("https://downloads.totallyfreecursors.com/thumbnails/airplane1.gif"), auto;}</style>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="{{ url_for('static', filename='js/anime.min.js') }}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  
+
+</body>
+
+</html>
